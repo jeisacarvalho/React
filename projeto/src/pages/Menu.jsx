@@ -1,9 +1,9 @@
 function Menu() {
     return (
         <div>
-            <a href="/">Home</a><br />
-            <a href="/">Sobre</a><br />
-            <a href="/">Contatos</a><br />
+            <a href="/">Home</a>&nbsp;&nbsp;&nbsp;
+            <a href="/">Sobre</a>&nbsp;&nbsp;&nbsp;
+            <a href="/">Contatos</a>
         </div>
     )
 }
