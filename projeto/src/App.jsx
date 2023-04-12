@@ -1,9 +1,11 @@
-import Titulo from "./Titulo"
-function App(){
+import Home from "./pages/Home";
+import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contatos";
+
+function App() {
   return (
     <div>
-      <Titulo cor="red"/>
-      <Titulo cor="blue"/>
+      <Home/>
     </div>
   )
 }
