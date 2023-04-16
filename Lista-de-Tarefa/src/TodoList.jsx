@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './TodoList.css'
-import Icone from './assets/icone.webp';
+import Icone from './assets/foto.webp';
 
 function TodoList() {
 
@@ -16,11 +16,17 @@ function TodoList() {
         setNovoItem("");
         document.getElementById('input-entrada').focus();
     }
+
+    function clicou(index) {
+        const listaAux = [...lista];
+        listaAux[index].iscomplete = !listaAux[index].iscomplete
+        setLista(listaAux);
+    }
     return (
         <div>
             <h1>Lista de Tarefas</h1>
             <form onSubmit={adicionarItem} >
-                <input type="text" 
+                <input id="input-entrada" type="text" 
                 value={novoItem}
                 onChange={(e)=>{setNovoItem(e.target.value)}}
 
@@ -35,14 +41,16 @@ function TodoList() {
                     <img className="icone-central" src={Icone} />
                     :
                     lista.map((item,index)=> (
-                        <div className="item" >
-                    <span>{item.text}</span>
+
+                    <div
+                    key={index}
+                      className={item.iscompleted ? "item completo" : "item"}>
+
+                        <span onClick={()=>{clicou(index)}} >{item.text}</span>
                     <button className="del" >Deletar</button>
 
                 </div>
-                        
-
-                    ))
+            ))
                 }
                 <div className="item" >
                     <span>Tarefa de Exemplo</span>
@@ -59,6 +67,7 @@ function TodoList() {
             </div>
         </div>
         </div>
+    
     )
 }
 
