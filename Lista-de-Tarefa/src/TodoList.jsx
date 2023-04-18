@@ -19,7 +19,13 @@ function TodoList() {
 
     function clicou(index) {
         const listaAux = [...lista];
-        listaAux[index].iscomplete = !listaAux[index].iscomplete
+        listaAux[index].iscomplete = !listaAux[index].iscomplete;
+        setLista(listaAux);
+    }
+
+    function deleta(index) {
+        const listaAux = [...lista];
+        listaAux.splice(index,1);
         setLista(listaAux);
     }
     return (
@@ -40,28 +46,21 @@ function TodoList() {
                     ?
                     <img className="icone-central" src={Icone} />
                     :
-                    lista.map((item,index)=> (
+                    lista.map((item, index)=> (
 
                     <div
                     key={index}
                       className={item.iscompleted ? "item completo" : "item"}>
 
-                        <span onClick={()=>{clicou(index)}} >{item.text}</span>
-                    <button className="del" >Deletar</button>
+                        <span onClick={() => {clicou(index)}}>{item.text}</span>
+
+                        <button onClick={() => {deleta(index)}} className="del" >Deletar</button>
 
                 </div>
             ))
                 }
-                <div className="item" >
-                    <span>Tarefa de Exemplo</span>
-                    <button className="del" >Deletar</button>
-
-                </div>
-                <div className="item completo">
-                    <span>Tarefa de Exemplo</span>
-                    <button className="del" >Deletar</button>
-
-                </div>
+            
+                
                 <button className="deletaall" > Deletar Todas</button>
 
             </div>
