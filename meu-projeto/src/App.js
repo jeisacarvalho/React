@@ -1,18 +1,23 @@
-
-import './App.css'
-import Condicional from './components/Condicional'
-
-
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import Home from './components/pages/Home'
+import Contato from './components/pages/Contato'
+import Empresa from './components/pages/Empresa'
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
 
 function App() {
   
   return (
-    <div className="App">
-      <h1>Renderização condicional</h1>
-      <Condicional/>
-
-    </div>
-
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route  path="/" element={<Home/>} />
+        <Route  path="/empresa" element={<Empresa/>} />
+        <Route  path="/contato" element={<Contato/>} />
+      </Routes>
+      <Footer/>
+      </Router>
+   
   ) 
 }
    
