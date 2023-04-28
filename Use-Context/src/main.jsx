@@ -5,7 +5,7 @@ import App from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Home from './rotes/Home'
-import Contats from './rotes/Contats'
+import Contat from './rotes/Contat'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <App/>,
     children:[
       {path: "/", element: <Home/>},
-      {path: "/Contats", element: <Contats/>},
+      {path: "/Contats", element: <Contat/>},
     ],
   },
 ]);
