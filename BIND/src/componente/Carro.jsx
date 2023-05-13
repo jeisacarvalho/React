@@ -8,16 +8,19 @@ export default class carro extends React.Component{
             ligado:false,
             velAtual:0,
         }
+
+        this.ld=this.ligarDesligar.bind(this)
     }
     ligarDesligar(){
         //this.state.ligado=true
-        //this.setState({ligado:!this.state.ligado})
-        this.setState(
-            (state)=>(
-            {ligado:!state.ligado}
-            )
-        )
-    }
+        this.setState({ligado:!this.state.ligado})
+        
+        //this.setState(
+            //(state)=>(
+            //{ligado:!state.ligado}
+            //)
+        //)
+    //}
 
     // Forma mais indicada
     acelerar(){
@@ -44,7 +47,7 @@ render(){
         <p>Modelo: {this.modelo}</p>
         <p>Ligado: {this.state.ligado ? "sim" : "Não"}</p>
         <p>vel.Atual: {this.state.velAtual}</p>
-        <button onClick={()=>this.ligarDesligar()}>{this.state.ligado ? 'Desligar Carro' : 'Ligar Carro'}</button>
+        <button onClick={this.ld}>{this.state.ligado ? 'Desligar Carro' : 'Ligar Carro'}</button>
 
         <button onClick={()=>this.acelerar()}>
             Acerelar
