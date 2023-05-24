@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 
-const tabelaIMC=()=>{
-  return(
+const TabelaIMC=()=>{
+    return (
+<>
   <table border='1' style={{borderCollapse:'Collapse'}}>
     <thead>
       <tr>
@@ -40,13 +42,17 @@ const tabelaIMC=()=>{
       </tr>
     </tbody>
   </table>
+  </>
   )
 }
 
-const fpeso=(p,sp)=>{
+
+export default function App(){
+
+  const fpeso=(p,sp)=>{
   return(
     <div>
-      <label>
+       <label>
         Peso 
         <input type="text" value={p} onChange={(e)=>{sp(e.target.value)}}/>
       </label>
@@ -54,7 +60,8 @@ const fpeso=(p,sp)=>{
   )
 }
 
-const faltura=(a,sa)=>{
+  const faltura=(a,sa)=>{
+
   return(
     <div>
       <label>
@@ -66,8 +73,8 @@ const faltura=(a,sa)=>{
 }
 
 const fcalcular=(p,a,sr)=>{
-  const calc=()=>{
-    sr(p/(a*a))
+   const calc=()=>{
+  sr(p/(a*a))
   }
   return(
     <div>
@@ -77,25 +84,25 @@ const fcalcular=(p,a,sr)=>{
 }
 
 const fresultado=(r)=>{
-  return(
+    return(
     <div>
       <p>Resultado: {r.toFixed(2)}</p>
     </div>
   )
 }
-
-export default function App(){
-
-  const [peso,setPeso]=useState(0)
-  const [altura,setAltura]=useState(0)
-  const [resultado,setResultado]=useState(0)
+   const [peso,setPeso]=useState(0)
+   const [altura,setAltura]=useState(0)
+   const [resultado,setResultado]=useState(0)
+   
+   
+  
   return(
-    <>
+    <div>
     {fpeso(peso,setPeso)}
     {faltura(altura,setAltura)}
-    {fcalcular(peso,altura,setResultado)}<br/>
+    {fcalcular(peso,altura,setResultado)}
     {fresultado(resultado)}
-    {tabelaIMC()}
-    </>
+    {TabelaIMC()}
+    </div>
   )
 }
